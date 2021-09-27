@@ -15,7 +15,8 @@
     "postversion": "npm publish"
   },
   "dependencies": {
-    "@knowdev/errors": "^1.0.1"
+    "@knowdev/errors": "^1.0.1",
+    "@knowdev/http": "^1.0.0"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
