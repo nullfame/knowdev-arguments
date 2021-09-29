@@ -12,6 +12,7 @@
     "test": "jest src/",
     "test:clean": "rimraf coverage/",
     "test:coverage": "jest --coverage src/",
+    "test:spec:index": "jest ./src/__tests__/index.spec.js",
     "test:spec:validate.function": "jest ./src/functions/__tests__/validate.function.spec.js",
     "postversion": "npm publish"
   },
