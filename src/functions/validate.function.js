@@ -98,7 +98,49 @@ const validate = (
   // Throw?
   //
   if (!valid && throws) {
-    throw BadRequestError(`Argument "${argument}" doesn't match type "${type}`);
+    switch (type) {
+      case TYPE.ANY:
+        throw BadRequestError(
+          `Argument "${argument}" doesn't match type "any"`
+        );
+      case TYPE.ARRAY:
+        throw BadRequestError(
+          `Argument "${argument}" doesn't match type "array"`
+        );
+      case TYPE.CLASS:
+        throw BadRequestError(
+          `Argument "${argument}" doesn't match type "class"`
+        );
+      case TYPE.FUNCTION:
+        throw BadRequestError(
+          `Argument "${argument}" doesn't match type "function"`
+        );
+      case TYPE.NUMBER:
+        throw BadRequestError(
+          `Argument "${argument}" doesn't match type "number"`
+        );
+      case TYPE.NULL:
+        throw BadRequestError(
+          `Argument "${argument}" doesn't match type "null"`
+        );
+      case TYPE.OBJECT:
+        throw BadRequestError(
+          `Argument "${argument}" doesn't match type "object"`
+        );
+      case TYPE.STRING:
+        throw BadRequestError(
+          `Argument "${argument}" doesn't match type "string"`
+        );
+      case TYPE.UNDEFINED:
+        throw BadRequestError(
+          `Argument "${argument}" doesn't match type "undefined"`
+        );
+
+      default:
+        throw BadRequestError(
+          `Argument "${argument}" doesn't match type "${type}"`
+        );
+    }
   }
 
   //
