@@ -56,7 +56,6 @@ const validate = (
           matchesType = true;
         }
       }
-      // if (argument.constructor) matchesType = false;
       break;
     case TYPE.NUMBER:
       matchesType = typeof argument === "number";
