@@ -20,6 +20,19 @@ validate(argument, {
 })
 ```
 
+### Convenience Functions
+
+``` javascript
+validate.array(argument);
+validate.class(argument);
+validate.function(argument);
+validate.null(argument);
+validate.number(argument);
+validate.object(argument);
+validate.string(argument);
+validate.undefined(argument);
+```
+
 ### Types
 
 #### Constant Types
@@ -59,6 +72,7 @@ String
 
 | Version | Change |
 | ------- | ------ |
+| 1.1.3   | Adds remaining `validate.type` shortcuts |
 | 1.1.2   | Rejects falsy on strings and numbers only |
 | 1.1.1   | Rejects falsy |
 | 1.1     | Adds `validate.string` shortcut |
@@ -71,19 +85,11 @@ String
 #### More Conveniences
 
 ``` javascript
-validate.number(argument);
 validate.positive(argument);
 validate.negative(argument);
 
 validate.lowercase(argument);
 validate.uppercase(argument);
-
-validate.array(argument);
-validate.class(argument);
-validate.function(argument);
-validate.null(argument);
-validate.object(argument);
-validate.undefined(argument);
 ```
 
 #### More Types
