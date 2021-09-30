@@ -13,7 +13,7 @@ const { TYPE } = require("../util/constants");
 
 const validate = (
   argument,
-  { type = TYPE.ANY, required = true, throws = true } = {}
+  { type = TYPE.ANY, falsy = false, required = true, throws = true } = {}
 ) => {
   //
   //
@@ -89,6 +89,11 @@ const validate = (
     // As long as the type isn't undefined
     if (type !== TYPE.UNDEFINED) {
       valid = valid && !isUndefined;
+
+      // Reject falsy
+      if (!falsy && type !== TYPE.NULL) {
+        if (!argument) valid = false;
+      }
     }
     // Otherwise (not required) allow undefined
   } else if (argument === undefined) valid = true;

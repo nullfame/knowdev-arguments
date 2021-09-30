@@ -139,6 +139,16 @@ describe("Validate function", () => {
       const response = validate(undefined, { type: String, required: false });
       expect(response).toBeTrue();
     });
+    it("Rejects falsy", () => {
+      const value = "";
+      const response = validate(value, { type: String, throws: false });
+      expect(response).toBeFalse();
+    });
+    it("Allows falsy by param", () => {
+      const value = "hello";
+      const response = validate(value, { type: String, falsy: true });
+      expect(response).toBeTrue();
+    });
   });
   describe("Error cases", () => {
     it("Throws if type is bogus", () => {
