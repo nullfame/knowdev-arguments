@@ -90,9 +90,11 @@ const validate = (
     if (type !== TYPE.UNDEFINED) {
       valid = valid && !isUndefined;
 
-      // Reject falsy
-      if (!falsy && type !== TYPE.NULL) {
-        if (!argument) valid = false;
+      // Reject falsy numbers and strings by default
+      if (type === TYPE.NUMBER || type === TYPE.STRING) {
+        if (!falsy) {
+          if (!argument) valid = false;
+        }
       }
     }
     // Otherwise (not required) allow undefined
