@@ -135,7 +135,7 @@ describe("Validate function", () => {
         expect(error.status).toBe(HTTP.CODE.BAD_REQUEST);
       }
     });
-    it.only("Accepts when not required", () => {
+    it("Accepts when not required", () => {
       const response = validate(undefined, { type: String, required: false });
       expect(response).toBeTrue();
     });
