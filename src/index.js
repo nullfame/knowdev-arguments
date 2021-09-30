@@ -3,6 +3,14 @@ const validate = require("./functions/validate.function");
 
 //
 //
+// Convenience functions
+//
+
+validate.string = (argument, options) =>
+  validate(argument, { type: TYPE.STRING, ...options });
+
+//
+//
 // Export
 //
 

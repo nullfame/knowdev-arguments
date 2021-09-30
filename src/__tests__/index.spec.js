@@ -38,4 +38,15 @@ describe("Validate Package", () => {
   it("Validate constants", () => {
     expect(TYPE.STRING).toBe(String);
   });
+  describe("Convenience Functions", () => {
+    it("Validates strings", () => {
+      const value = "hello";
+      const response = validate.string(value);
+      expect(response).toBeTrue();
+    });
+    it("Allows options", () => {
+      const response = validate.string(undefined, { required: false });
+      expect(response).toBeTrue();
+    });
+  });
 });
