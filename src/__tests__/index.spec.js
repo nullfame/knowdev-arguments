@@ -3,29 +3,6 @@ const { TYPE } = require("../index");
 
 //
 //
-// Mock constants
-//
-
-//
-//
-// Mock modules
-//
-
-//
-//
-// Mock environment
-//
-
-const DEFAULT_ENV = process.env;
-beforeEach(() => {
-  process.env = { ...process.env };
-});
-afterEach(() => {
-  process.env = DEFAULT_ENV;
-});
-
-//
-//
 // Run tests
 //
 
@@ -37,6 +14,9 @@ describe("Validate Package", () => {
   });
   it("Validate constants", () => {
     expect(TYPE.STRING).toBe(String);
+  });
+  it("Force function", () => {
+    expect(validate.force).toBeFunction();
   });
   describe("Convenience Functions", () => {
     it("Validates arrays", () => {

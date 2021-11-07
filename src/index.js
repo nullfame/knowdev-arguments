@@ -1,4 +1,5 @@
 const { TYPE } = require("./util/constants");
+const force = require("./functions/force.function");
 const validate = require("./functions/validate.function");
 
 //
@@ -29,4 +30,5 @@ validate.undefined = (argument, options) =>
 //
 
 module.exports = validate;
+module.exports.force = force;
 module.exports.TYPE = TYPE;
