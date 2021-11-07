@@ -10,6 +10,7 @@ npm install --save @knowdev/arguments
 
 ``` javascript
 const validate = require("@knowdev/arguments");
+const { force } = require("@knowdev/arguments");
 const { TYPE } = require("@knowdev/arguments");
 
 validate(argument, {
@@ -18,6 +19,8 @@ validate(argument, {
   required: true,
   throws: true
 })
+
+argument = force(argument, Array);
 ```
 
 ### Convenience Functions
@@ -31,6 +34,8 @@ validate.number(argument);
 validate.object(argument);
 validate.string(argument);
 validate.undefined(argument);
+
+argument = force.array(argument);
 ```
 
 ### Types
@@ -72,6 +77,7 @@ String
 
 | Version | Change |
 | ------- | ------ |
+| 1.2.0   | Adds `force`, which only supports `Array`
 | 1.1.3   | Adds remaining `validate.type` shortcuts |
 | 1.1.2   | Rejects falsy on strings and numbers only |
 | 1.1.1   | Rejects falsy |
@@ -99,7 +105,6 @@ validate.uppercase(argument);
 #### Force Into Required Type
 
 ``` javascript
-force.array(argument);
 force.lowercase(argument);
 force.object(argument, { key: "value" });
 force.string(argument, { default: "value" });
