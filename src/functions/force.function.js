@@ -1,3 +1,5 @@
+const { TYPE } = require("../util/constants");
+
 //
 //
 // Main
@@ -5,7 +7,7 @@
 
 const force = (value, type) => {
   switch (type) {
-    case Array:
+    case TYPE.ARRAY:
       if (!Array.isArray(value)) return [value];
       return value;
     default:
