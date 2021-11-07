@@ -15,9 +15,9 @@ const { TYPE } = require("@knowdev/arguments");
 
 validate(argument, {
   type: TYPE.ANY,
-  falsy: false,
-  required: true,
-  throws: true
+  falsy: false,     // When `true`, allows "falsy" values that match the type (e.g., `0`, `""`)
+  required: true,   // When `false`, allows `undefined` as a valid value
+  throws: true      // When `false`, returns `false` instead of throwing error
 })
 
 argument = force(argument, Array);
