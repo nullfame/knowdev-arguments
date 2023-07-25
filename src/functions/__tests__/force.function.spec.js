@@ -39,6 +39,7 @@ describe("Force function", () => {
     it.todo("Parses JSON");
   });
   describe("Strings", () => {
+    it.todo("Converts null to 'null'");
     it.todo("Converts objects to JSON");
     it.todo("Runs everything else through toString()");
     it.todo("Returns strings untouched");
