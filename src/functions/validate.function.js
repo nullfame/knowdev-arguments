@@ -13,7 +13,7 @@ const { TYPE } = require("../util/constants");
 
 const validate = (
   argument,
-  { type = TYPE.ANY, falsy = false, required = true, throws = true } = {}
+  { type = TYPE.ANY, falsy = false, required = true, throws = true } = {},
 ) => {
   //
   //
@@ -108,44 +108,44 @@ const validate = (
     switch (type) {
       case TYPE.ANY:
         throw BadRequestError(
-          `Argument "${argument}" doesn't match type "any"`
+          `Argument "${argument}" doesn't match type "any"`,
         );
       case TYPE.ARRAY:
         throw BadRequestError(
-          `Argument "${argument}" doesn't match type "array"`
+          `Argument "${argument}" doesn't match type "array"`,
         );
       case TYPE.CLASS:
         throw BadRequestError(
-          `Argument "${argument}" doesn't match type "class"`
+          `Argument "${argument}" doesn't match type "class"`,
         );
       case TYPE.FUNCTION:
         throw BadRequestError(
-          `Argument "${argument}" doesn't match type "function"`
+          `Argument "${argument}" doesn't match type "function"`,
         );
       case TYPE.NUMBER:
         throw BadRequestError(
-          `Argument "${argument}" doesn't match type "number"`
+          `Argument "${argument}" doesn't match type "number"`,
         );
       case TYPE.NULL:
         throw BadRequestError(
-          `Argument "${argument}" doesn't match type "null"`
+          `Argument "${argument}" doesn't match type "null"`,
         );
       case TYPE.OBJECT:
         throw BadRequestError(
-          `Argument "${argument}" doesn't match type "object"`
+          `Argument "${argument}" doesn't match type "object"`,
         );
       case TYPE.STRING:
         throw BadRequestError(
-          `Argument "${argument}" doesn't match type "string"`
+          `Argument "${argument}" doesn't match type "string"`,
         );
       case TYPE.UNDEFINED:
         throw BadRequestError(
-          `Argument "${argument}" doesn't match type "undefined"`
+          `Argument "${argument}" doesn't match type "undefined"`,
         );
 
       default:
         throw BadRequestError(
-          `Argument "${argument}" doesn't match type "${type}"`
+          `Argument "${argument}" doesn't match type "${type}"`,
         );
     }
   }
