@@ -36,6 +36,12 @@ describe("Force function", () => {
       expect(response).toBeObject();
       expect(response).toBe(taco);
     });
+    it.todo("Parses JSON");
+  });
+  describe("Strings", () => {
+    it.todo("Converts objects to JSON");
+    it.todo("Runs everything else through toString()");
+    it.todo("Returns strings untouched");
   });
 
   describe("Convenience Functions", () => {
