@@ -20,8 +20,22 @@ describe("Force function", () => {
     });
   });
   describe("Objects", () => {
-    it.todo("Forces objects");
-    it.todo("Returns objects untouched");
+    it("Forces objects", () => {
+      const response = force("taco", Object);
+      expect(response).toBeObject();
+      expect(response).toEqual({ value: "taco" });
+    });
+    it("Forces objects with a key", () => {
+      const response = force("taco", Object, "food");
+      expect(response).toBeObject();
+      expect(response).toEqual({ food: "taco" });
+    });
+    it("Returns objects untouched", () => {
+      const taco = { type: "beef" };
+      const response = force(taco, Object);
+      expect(response).toBeObject();
+      expect(response).toBe(taco);
+    });
   });
 
   describe("Convenience Functions", () => {
@@ -29,6 +43,9 @@ describe("Force function", () => {
       expect(force.array).toBeFunction();
       expect(force.array("taco")).toBeArray();
     });
-    it.todo("Forces objects");
+    it("Forces objects", () => {
+      expect(force.object).toBeFunction();
+      expect(force.object("taco")).toBeObject();
+    });
   });
 });
