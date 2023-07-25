@@ -5,12 +5,13 @@ const { TYPE } = require("../util/constants");
 // Main
 //
 
-const force = (value, type, key = "value") => {
+const force = (value, type, key = "") => {
   switch (type) {
     case TYPE.ARRAY:
       if (!Array.isArray(value)) return [value];
       return value;
     case TYPE.OBJECT:
+      if (!key) key = "value"; // eslint-disable-line no-param-reassign
       if (typeof value !== "object") return { [key]: value };
       return value;
     default:
@@ -24,7 +25,7 @@ const force = (value, type, key = "value") => {
 //
 
 force.array = (value) => force(value, Array);
-force.object = (value, key) => force(value, Object, key);
+force.object = (value, key = "value") => force(value, Object, key);
 
 //
 //
