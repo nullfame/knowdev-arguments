@@ -36,7 +36,11 @@ describe("Force function", () => {
       expect(response).toBeObject();
       expect(response).toBe(taco);
     });
-    it.todo("Parses JSON");
+    it("Parses JSON", () => {
+      const response = force('{"taco":"beef"}', Object);
+      expect(response).toBeObject();
+      expect(response).toEqual({ taco: "beef" });
+    });
   });
   describe("Strings", () => {
     it("Converts null to 'null'", () => {

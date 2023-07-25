@@ -12,6 +12,14 @@ const force = (value, type, key = "") => {
       return value;
     case TYPE.OBJECT:
       if (!key) key = "value"; // eslint-disable-line no-param-reassign
+      // If it is a string, try parsing as JSON but catch errors
+      if (typeof value === "string") {
+        try {
+          value = JSON.parse(value); // eslint-disable-line no-param-reassign
+        } catch (error) {
+          // Do nothing
+        }
+      }
       if (typeof value !== "object") return { [key]: value };
       return value;
     case TYPE.STRING:
