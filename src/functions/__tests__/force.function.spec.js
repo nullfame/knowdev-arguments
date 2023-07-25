@@ -39,10 +39,35 @@ describe("Force function", () => {
     it.todo("Parses JSON");
   });
   describe("Strings", () => {
-    it.todo("Converts null to 'null'");
-    it.todo("Converts objects to JSON");
-    it.todo("Runs everything else through toString()");
-    it.todo("Returns strings untouched");
+    it("Converts null to 'null'", () => {
+      const response = force(null, String);
+      expect(response).toBeString();
+    });
+    it("Converts objects to JSON", () => {
+      const response = force({ taco: "beef" }, String);
+      expect(response).toBeString();
+      expect(response).toBe('{"taco":"beef"}');
+    });
+    it("Runs everything else through toString()", () => {
+      const response = force(42, String);
+      expect(response).toBeString();
+      expect(response).toBe("42");
+    });
+    it("Converts undefined to empty string (because this is the default)", () => {
+      const response = force(undefined, String);
+      expect(response).toBeString();
+      expect(response).toBe("");
+    });
+    it("Converts undefined to default when passed", () => {
+      const response = force(undefined, String, 42);
+      expect(response).toBeString();
+      expect(response).toBe("42");
+    });
+    it("Returns strings untouched", () => {
+      const response = force("taco", String);
+      expect(response).toBeString();
+      expect(response).toBe("taco");
+    });
   });
 
   describe("Convenience Functions", () => {
@@ -53,6 +78,12 @@ describe("Force function", () => {
     it("Forces objects", () => {
       expect(force.object).toBeFunction();
       expect(force.object("taco")).toBeObject();
+    });
+    it("Forces strings", () => {
+      expect(force.string).toBeFunction();
+      expect(force.string(42)).toBeString();
+      expect(force.string()).toBeString();
+      expect(force.string(undefined, "taco")).toBe("taco");
     });
   });
 });

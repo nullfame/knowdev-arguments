@@ -14,6 +14,11 @@ const force = (value, type, key = "") => {
       if (!key) key = "value"; // eslint-disable-line no-param-reassign
       if (typeof value !== "object") return { [key]: value };
       return value;
+    case TYPE.STRING:
+      if (value === null) return "null";
+      if (value === undefined) return String(key);
+      if (typeof value === "object") return JSON.stringify(value);
+      return String(value);
     default:
       throw TypeError(`Unsupported type, "${type}"`);
   }
@@ -26,6 +31,7 @@ const force = (value, type, key = "") => {
 
 force.array = (value) => force(value, Array);
 force.object = (value, key = "value") => force(value, Object, key);
+force.string = (value, defaultValue = "") => force(value, String, defaultValue);
 
 //
 //
