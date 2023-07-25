@@ -18,7 +18,6 @@ validate.uppercase(argument);
 
 ``` javascript
 force.lowercase(argument);
-force.string(argument, { default: "value" });
 ```
 
 ## Object Paths

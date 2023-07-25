@@ -20,9 +20,10 @@ validate(argument, {
   throws: true      // When `false`, returns `false` instead of throwing error
 })
 
-// force only supports Array and Object
+// force supports Array, Object, and String
 argument = force(argument, Array);
 argument = force(argument, Object, "key");
+argument = force(argument, String, "default");
 ```
 
 ### Convenience Functions
@@ -39,6 +40,7 @@ validate.undefined(argument);
 
 argument = force.array(argument);
 argument = force.object(argument, "key");
+argument = force.string(argument);
 ```
 
 ### Types
@@ -80,7 +82,7 @@ String
 
 | Version | Change |
 | ------- | ------ |
-| 1.3.0   | `force` supports `Object`
+| 1.3.0   | `force` supports `Object` and `String`
 | 1.2.0   | Adds `force`, which only supports `Array`
 | 1.1.3   | Adds remaining `validate.type` shortcuts |
 | 1.1.2   | Rejects falsy on strings and numbers only |
