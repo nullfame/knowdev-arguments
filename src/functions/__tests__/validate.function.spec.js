@@ -150,13 +150,9 @@ describe("Validate function", () => {
           });
           expect(response).toBeFalse();
         });
-        it("Allows falsy by param", () => {
+        it("Allows falsy by default", () => {
           const value = 0;
-          const response = validate(value, {
-            falsy: false,
-            type: Number,
-            falsy: true,
-          });
+          const response = validate(value, { type: Number });
           expect(response).toBeTrue();
         });
       });
