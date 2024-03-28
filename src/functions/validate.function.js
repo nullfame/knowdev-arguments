@@ -13,7 +13,7 @@ const { TYPE } = require("../util/constants");
 
 const validate = (
   argument,
-  { type = TYPE.ANY, falsy = false, required = true, throws = true } = {},
+  { type = TYPE.ANY, falsy = true, required = true, throws = true } = {},
 ) => {
   //
   //

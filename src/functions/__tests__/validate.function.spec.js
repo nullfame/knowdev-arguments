@@ -143,24 +143,36 @@ describe("Validate function", () => {
       describe("Number", () => {
         it("Rejects falsy", () => {
           const value = 0;
-          const response = validate(value, { type: Number, throws: false });
+          const response = validate(value, {
+            falsy: false,
+            type: Number,
+            throws: false,
+          });
           expect(response).toBeFalse();
         });
         it("Allows falsy by param", () => {
           const value = 0;
-          const response = validate(value, { type: Number, falsy: true });
+          const response = validate(value, {
+            falsy: false,
+            type: Number,
+            falsy: true,
+          });
           expect(response).toBeTrue();
         });
       });
       describe("String", () => {
-        it("Rejects falsy", () => {
+        it("Rejects falsy by param", () => {
           const value = "";
-          const response = validate(value, { type: String, throws: false });
+          const response = validate(value, {
+            falsy: false,
+            type: String,
+            throws: false,
+          });
           expect(response).toBeFalse();
         });
-        it("Allows falsy by param", () => {
+        it("Allows falsy by default", () => {
           const value = "";
-          const response = validate(value, { type: String, falsy: true });
+          const response = validate(value, { type: String });
           expect(response).toBeTrue();
         });
       });
